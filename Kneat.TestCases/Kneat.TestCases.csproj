@@ -15,10 +15,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Base\" />
-    <Folder Include="Booking.com\" />
-    <Folder Include="Booking.com\Search\" />
+    <Folder Include="Booking\" />
+    <Folder Include="Booking\Search\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kneat.Framework\Kneat.Framework.csproj" />
+    <ProjectReference Include="..\Kneat.Pages\Kneat.Pages.csproj" />
   </ItemGroup>
 </Project>

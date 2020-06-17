@@ -12,6 +12,10 @@
   <ItemGroup>
     <Folder Include="Browser\" />
     <Folder Include="Drivers\" />
+    <Folder Include="Core\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Factories\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Drivers\chromedriver" />
@@ -26,5 +30,8 @@
     <EmbeddedResource Include="Drivers\chromedriver">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kneat.Common\Kneat.Common.csproj" />
   </ItemGroup>
 </Project>

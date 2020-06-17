@@ -19,7 +19,7 @@ namespace Kneat.TestCases.Base
 
             // Test Init
             BrowserManager.Instance.Init();
-            BrowserManager.Instance.Visit("https://www.booking.com/searchresults.html");
+            BrowserManager.Instance.Visit("https://www.booking.com");
         }
 
         [TearDown]

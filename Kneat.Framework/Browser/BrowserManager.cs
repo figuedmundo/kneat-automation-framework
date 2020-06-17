@@ -59,15 +59,10 @@ namespace Kneat.Framework.Browser
             }
         }
 
-        //private readonly string driverPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         private IWebDriver GetDriver()
         {
-            String path = Path.GetDirectoryName(GetType().Assembly.Location);
-            //String path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-            Console.WriteLine(Path.Combine(path, "Drivers"));
-
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var driver = new ChromeDriver(Path.Combine(path, "Drivers"));
             // log driver used
 
