@@ -2,6 +2,7 @@
 using Kneat.Common.Controls;
 using Kneat.Framework.Browser;
 using Kneat.Framework.Core;
+using Kneat.Reports;
 using OpenQA.Selenium;
 
 namespace Kneat.Framework.Controls
@@ -26,6 +27,8 @@ namespace Kneat.Framework.Controls
             var text = Element.Text;
 
             // log
+            var message = $"Get Text from {ControlName}, text: [{text}]";
+            ExtentReportsHelper.Instance.SetStepStatusPass(message);
 
             return text;
         }
@@ -36,6 +39,8 @@ namespace Kneat.Framework.Controls
             var res = Element.Displayed;
 
             // log
+            var message = $"Element {ControlName} is Displayed";
+            ExtentReportsHelper.Instance.SetStepStatusPass(message);
 
             return res;
         }
@@ -45,36 +50,23 @@ namespace Kneat.Framework.Controls
             var res = Element.Enabled;
 
             // log
+            var message = $"Element {ControlName} is Enable";
+            ExtentReportsHelper.Instance.SetStepStatusPass(message);
 
             return res;
         }
 
-        public void VerifyText(string expectedValue)
-        {
-            var text = GetText();
-
-
-            
-            //log
-
-            // validate
-        }
-
         public bool IsPresent()
         {
-
             try
             {
                 return TryFind() != null ;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ExtentReportsHelper.Instance.SetStepStatusInformation($"Element {ControlName} is not Present, Exception [{ex.Message}]");
                 return false;
             }
-
-            //log
-
-            // validate
         }
 
         public void Highlight()
@@ -87,9 +79,25 @@ namespace Kneat.Framework.Controls
             }
             catch (Exception ex)
             {
-                //Log
-                
+                ExtentReportsHelper.Instance.SetStepStatusInformation($"Element {ControlName} cannot " +
+                    $"be Hihglighted, Exception [{ex.Message}]");
             }
         }
+
+        public void VerifyContainsText(string expectedValue)
+        {
+            var text = GetText();
+
+            if (text.Contains(expectedValue, StringComparison.InvariantCultureIgnoreCase))
+            {
+                ExtentReportsHelper.Instance.SetStepStatusPass($"[{ControlName}]: Verified Text Contains [{expectedValue}]");
+            }
+            else
+            {
+                var message = $"[{ControlName}]: Failed, Text [{text}], expected to contains [{expectedValue}]";
+                throw new InvalidElementStateException(message);
+            }
+        }
+
     }
 }

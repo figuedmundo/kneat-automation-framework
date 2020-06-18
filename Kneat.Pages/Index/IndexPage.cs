@@ -1,6 +1,4 @@
-﻿using System;
-using Kneat.Common.Controls;
-using Kneat.Common.Pages;
+﻿using Kneat.Common.Controls;
 using Kneat.Framework.Controls;
 using Kneat.Framework.Core;
 using Kneat.Framework.Factories;

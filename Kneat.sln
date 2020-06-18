@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kneat.Common", "Kneat.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kneat.Pages", "Kneat.Pages\Kneat.Pages.csproj", "{129FE6BE-1A1E-4C4B-957C-878B38CA8CC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kneat.Reports", "Kneat.Reports\Kneat.Reports.csproj", "{C4B17793-24C1-4D99-A5FD-ECD5C410E70C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +33,9 @@ Global
 		{129FE6BE-1A1E-4C4B-957C-878B38CA8CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{129FE6BE-1A1E-4C4B-957C-878B38CA8CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{129FE6BE-1A1E-4C4B-957C-878B38CA8CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B17793-24C1-4D99-A5FD-ECD5C410E70C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B17793-24C1-4D99-A5FD-ECD5C410E70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B17793-24C1-4D99-A5FD-ECD5C410E70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B17793-24C1-4D99-A5FD-ECD5C410E70C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

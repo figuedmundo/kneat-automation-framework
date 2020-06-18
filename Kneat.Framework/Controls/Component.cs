@@ -1,5 +1,4 @@
-﻿using System;
-using Kneat.Framework.Core;
+﻿using Kneat.Framework.Core;
 
 namespace Kneat.Framework.Controls
 {

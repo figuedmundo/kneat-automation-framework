@@ -3,6 +3,7 @@ using Kneat.Common.Controls;
 using Kneat.Framework.Controls;
 using Kneat.Framework.Core;
 using Kneat.Framework.Factories;
+using Kneat.Reports;
 
 namespace Kneat.Pages.Common
 {
@@ -34,9 +35,8 @@ namespace Kneat.Pages.Common
             var formatedDate = datetime.ToString("yyyy-MM-dd");
             var today = DateTime.Now;
 
-
             var dateControl = ControlFactory
-            .GetControl<Button>(this, Locator.CssSelector, $".bui-calendar__date[data-date='{formatedDate}']", "Month Right");
+            .GetControl<Button>(this, Locator.CssSelector, $".bui-calendar__date[data-date='{formatedDate}']", $"Date [{formatedDate}]");
 
             var changeMonthButton = datetime > today ? NextMonth : PreviousMonth;
             var monthsDifference = Math.Abs(((today.Year - datetime.Year) * 12) + today.Month - datetime.Month);
@@ -47,10 +47,15 @@ namespace Kneat.Pages.Common
                 monthsDifference--;
             }
 
-            dateControl.Highlight();
-            dateControl.Click();
-
+            if (dateControl.IsPresent())
+            {
+                dateControl.Click();
+                ExtentReportsHelper.Instance.SetStepStatusPass($"{ControlName} has Select Date [{formatedDate}]");
+            }
+            else
+            {
+                throw new Exception($"{ControlName} couldn't find [{formatedDate}] date to select.");
+            }
         }
-
     }
 }

@@ -21,5 +21,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Kneat.Framework\Kneat.Framework.csproj" />
     <ProjectReference Include="..\Kneat.Pages\Kneat.Pages.csproj" />
+    <ProjectReference Include="..\Kneat.Reports\Kneat.Reports.csproj" />
   </ItemGroup>
 </Project>

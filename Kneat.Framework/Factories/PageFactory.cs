@@ -1,4 +1,6 @@
 ﻿using System;
+using Kneat.Reports;
+
 namespace Kneat.Framework.Factories
 {
     public class PageFactory
@@ -6,23 +8,15 @@ namespace Kneat.Framework.Factories
 
         public static T CreatePage<T>()
         {
-            //ManageAttributeValue<T>();
-
-            //Log
-            //ResolverLogger.Passed($"<a style>GoTo {typeof(T).Name}.</a>");
-
+            ExtentReportsHelper.Instance.SetStepStatusPass($"<br>Page [{typeof(T).Name}]:<br>");
             return (T)Activator.CreateInstance(typeof(T));
         }
 
         public static T CreatePage<T>(string title)
         {
-            //ManageAttributeValue<T>();
-
             //Log
-            //ResolverLogger.Passed($"<a style>GoTo {typeof(T).Name}.</a>");
-
+            ExtentReportsHelper.Instance.SetStepStatusPass($"Page [{title}]:");
             return (T)Activator.CreateInstance(typeof(T), title);
         }
-
     }
 }

@@ -5,5 +5,6 @@ namespace Kneat.Common.Controls
 {
     public interface ISelectBox : IControl, ISelectable
     {
+        void VerifyOptionSelected(string expectedValue);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Kneat.Common.Controls;
 using Kneat.Framework.Core;
+using Kneat.Reports;
 
 namespace Kneat.Framework.Controls
 {
@@ -20,6 +21,8 @@ namespace Kneat.Framework.Controls
             Element.Click();
 
             // log
+            var message = $"Click on {ControlName}";
+            ExtentReportsHelper.Instance.SetStepStatusPass(message);
         }
     }
 }

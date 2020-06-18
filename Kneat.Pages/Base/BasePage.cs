@@ -1,5 +1,4 @@
-﻿using System;
-using Kneat.Common.Controls;
+﻿using Kneat.Common.Controls;
 using Kneat.Common.Pages;
 using Kneat.Framework.Controls;
 using Kneat.Framework.Factories;
@@ -8,9 +7,11 @@ namespace Kneat.Pages.Base
 {
     public class BasePage : IPage
     {
+        public string Title { get; set; }
+
         public BasePage(string title)
         {
-            // log title
+            Title = title;
             AcceptCookies();
         }
 

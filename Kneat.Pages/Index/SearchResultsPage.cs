@@ -6,6 +6,7 @@ using Kneat.Framework.Controls;
 using Kneat.Framework.Core;
 using Kneat.Framework.Factories;
 using Kneat.Pages.Base;
+using Kneat.Reports;
 
 namespace Kneat.Pages.Index
 {
@@ -36,7 +37,7 @@ namespace Kneat.Pages.Index
             }
 
             // log finish waiting
-
+            ExtentReportsHelper.Instance.SetStepStatusPass($"{Title} has Wait Loading.");
         }
 
         public void SelectFilterOption(string value)
@@ -45,11 +46,16 @@ namespace Kneat.Pages.Index
 
             var filters = filterControl.Elements;
 
-            var option = filters.SingleOrDefault(f => f.Text.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            var option = filters.FirstOrDefault(f => f.Text.Contains(value, StringComparison.InvariantCultureIgnoreCase));
 
             if (option != null)
             {
                 option.Click();
+                ExtentReportsHelper.Instance.SetStepStatusPass($"{Title} has Select Filter [{value}]");
+            }
+            else
+            {
+                throw new Exception($"{Title} doesn't have the Filter option [{value}]");
             }
         }
 
@@ -63,13 +69,28 @@ namespace Kneat.Pages.Index
 
         public void VerifyHotelCardIsDisplayed(string hotelName)
         {
-            Console.WriteLine(IsHotelCardPresent(hotelName));
+
+            if (IsHotelCardPresent(hotelName))
+            {
+                ExtentReportsHelper.Instance.SetStepStatusPass($"{Title} page has the [{hotelName}] Hotel Card Displayed.");
+            }
+            else
+            {
+                throw new Exception($"{Title} page should have the [{hotelName}] Hotel Card Displayed.");
+            }
         }
 
         public void VerifyHotelCardIsNotDisplayed(string hotelName)
         {
-            Console.WriteLine(IsHotelCardPresent(hotelName));
-        }
 
+            if (!IsHotelCardPresent(hotelName))
+            {
+                ExtentReportsHelper.Instance.SetStepStatusPass($"{Title} page has not the [{hotelName}] Hotel Card Displayed.");
+            }
+            else
+            {
+                throw new Exception($"{Title} page should have not the [{hotelName}] Hotel Card Displayed.");
+            }
+        }
     }
 }

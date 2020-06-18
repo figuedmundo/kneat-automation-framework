@@ -1,38 +1,34 @@
 ﻿using System;
-using Kneat.Framework.Factories;
-using Kneat.Pages.Index;
+using Kneat.Pages.Base;
 using Kneat.TestCases.Base;
 using NUnit.Framework;
 
 namespace Kneat.TestCases.Booking.Search
 {
     [TestFixture]
-    public class SampleTest : BaseTest
+    public class VerifySearchFilters : BaseTest
     {
         [Test]
         [TestCase("5 stars", "The Savoy Hotel")]
         [TestCase("Sauna", "Limerick Strand Hotel")]
         public void VerifyHotelIsDisplayed(string filterOption, string hotelNamePresent)
         {
-            var indexPage = PageFactory.CreatePage<IndexPage>();
+            var indexPage = Page.Index;
             indexPage.SearchBox.SetText("Limerick");
             indexPage.CheckIn.Click();
             indexPage.Calendar.SelectDate(DateTime.Now.AddMonths(3));
             indexPage.Calendar.SelectDate(DateTime.Now.AddMonths(3).AddDays(1));
             indexPage.CheckOut.Click();
-            var text = indexPage.Calendar.Display.GetText();
-            StringAssert.Contains("(1-night stay)", text);
+            indexPage.Calendar.Display.VerifyContainsText("(1-night stay)");
             indexPage.Search.Click();
 
-            var searchPage = PageFactory.CreatePage<SearchResultsPage>();
-            var numberOfAdults = searchPage.NumberOfAdults.GetOptionSelected();
-            StringAssert.AreEqualIgnoringCase("2 adults", numberOfAdults);
-
+            var searchPage = Page.SearchResults;
+            searchPage.NumberOfAdults.VerifyOptionSelected("2 adults");
+            searchPage.NumberOfChildren.VerifyOptionSelected("No children");
+            searchPage.NumberOfRooms.VerifyOptionSelected("1 room");
             searchPage.SelectFilterOption(filterOption);
             searchPage.WaitLoading();
-            var res = searchPage.IsHotelCardPresent(hotelNamePresent);
-
-            Assert.IsTrue(res);
+            searchPage.VerifyHotelCardIsDisplayed(hotelNamePresent);
         }
 
         [Test]
@@ -40,25 +36,22 @@ namespace Kneat.TestCases.Booking.Search
         [TestCase("Sauna", "George Limerick Hotel")]
         public void VerifyHotelIsNotDisplayed(string filterOption, string hotelNamePresent)
         {
-            var indexPage = PageFactory.CreatePage<IndexPage>();
+            var indexPage = Page.Index;
             indexPage.SearchBox.SetText("Limerick");
             indexPage.CheckIn.Click();
             indexPage.Calendar.SelectDate(DateTime.Now.AddMonths(3));
             indexPage.Calendar.SelectDate(DateTime.Now.AddMonths(3).AddDays(1));
             indexPage.CheckOut.Click();
-            var text = indexPage.Calendar.Display.GetText();
-            StringAssert.Contains("(1-night stay)", text);
+            indexPage.Calendar.Display.VerifyContainsText("(1-night stay)");
             indexPage.Search.Click();
 
-            var searchPage = PageFactory.CreatePage<SearchResultsPage>();
-            var numberOfAdults = searchPage.NumberOfAdults.GetOptionSelected();
-            StringAssert.AreEqualIgnoringCase("2 adults", numberOfAdults);
-
+            var searchPage = Page.SearchResults;
+            searchPage.NumberOfAdults.VerifyOptionSelected("2 adults");
+            searchPage.NumberOfChildren.VerifyOptionSelected("No children");
+            searchPage.NumberOfRooms.VerifyOptionSelected("1 room");
             searchPage.SelectFilterOption(filterOption);
             searchPage.WaitLoading();
-            var res = searchPage.IsHotelCardPresent(hotelNamePresent);
-
-            Assert.IsFalse(res);
+            searchPage.VerifyHotelCardIsNotDisplayed(hotelNamePresent);
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿using System;
-using Kneat.Common.Behavior;
-using Kneat.Common.Controls;
+﻿using Kneat.Common.Controls;
 using Kneat.Framework.Core;
+using Kneat.Reports;
 
 namespace Kneat.Framework.Controls
 {
@@ -17,10 +16,12 @@ namespace Kneat.Framework.Controls
         {
         }
 
-
         public void Clear()
         {
-            throw new NotImplementedException();
+            Element.Clear();
+
+            // log
+            ExtentReportsHelper.Instance.SetStepStatusPass($"Element {ControlName} cleared");
         }
 
         public void SetText(string text)
@@ -28,6 +29,7 @@ namespace Kneat.Framework.Controls
             Element.SendKeys(text);
 
             // log
+            ExtentReportsHelper.Instance.SetStepStatusPass($"Element {ControlName} has Set Text [{text}]");
         }
     }
 }

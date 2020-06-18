@@ -5,9 +5,10 @@ namespace Kneat.Common.Controls
     {
         bool IsDisplayed();
         bool IsEnable();
-        void VerifyText(string expectedValue);
         string GetText();
         void Highlight();
         bool IsPresent();
+        void VerifyContainsText(string expectedValue);
+
     }
 }
