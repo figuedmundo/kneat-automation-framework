@@ -2,7 +2,7 @@
 
 Automation Framework project for UI test automation using Selenium and .NET core 3.1, the framework follows the Page Object Model pattern concepts.
 
-**SUT:** Booking.com
+**SUT:** [Booking.com](https://www.booking.com/)
 
 ## Requirements
 
