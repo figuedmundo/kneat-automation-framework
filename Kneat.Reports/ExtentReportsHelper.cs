@@ -29,7 +29,7 @@ namespace Kneat.Reports
                 : Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
 
             Extent = new AventStack.ExtentReports.ExtentReports();
-            Reporter = new ExtentV3HtmlReporter(Path.Combine(reportPath, "ExtentReport.html"));
+            Reporter = new ExtentV3HtmlReporter(Path.Combine(reportPath, "AutomationReport.html"));
             Reporter.Config.DocumentTitle = "Automation Testing Report";
             Reporter.Config.ReportName = "Regression Testing";
             Reporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
