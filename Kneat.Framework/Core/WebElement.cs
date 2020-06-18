@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Kneat.Common.Pages;
+﻿using System.Collections.Generic;
 using OpenQA.Selenium;
 
 namespace Kneat.Framework.Core
@@ -16,8 +14,6 @@ namespace Kneat.Framework.Core
             ControlName = controlName;
             By = SearchBy(locator, value);
         }
-
-
 
         public WebElement(WebElement container, Locator locator, string value, string controlName)
         {

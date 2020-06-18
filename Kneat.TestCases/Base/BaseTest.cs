@@ -68,7 +68,6 @@ namespace Kneat.TestCases.Base
                 // Test Clean up
                 BrowserManager.Instance.Quit();
             }
-           
         }
 
         [OneTimeTearDown]

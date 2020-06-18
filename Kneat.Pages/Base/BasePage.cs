@@ -1,5 +1,4 @@
-﻿using Kneat.Common.Controls;
-using Kneat.Common.Pages;
+﻿using Kneat.Common.Pages;
 using Kneat.Framework.Controls;
 using Kneat.Framework.Factories;
 
@@ -15,19 +14,19 @@ namespace Kneat.Pages.Base
             AcceptCookies();
         }
 
-        public IButton AcceptButton => ControlFactory.GetControl<Button>(Framework.Core.Locator.CssSelector,
-            "#cookie_warning button[data-gdpr-consent='accept']", "Accept Cookies");
-
         public void AcceptCookies()
         {
-            if (AcceptButton.IsPresent())
+            var acceptButton = ControlFactory.GetControl<Button>(Framework.Core.Locator.CssSelector,
+            "#cookie_warning button[data-gdpr-consent='accept']", "Accept Cookies");
+
+            if (acceptButton.IsPresent())
             {
-                AcceptButton.Click();
+                acceptButton.Click();
             }
         }
 
         // Header
 
-        // Nav bar
+        // Footer
     }
 }

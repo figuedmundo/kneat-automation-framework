@@ -34,5 +34,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Kneat.Common\Kneat.Common.csproj" />
     <ProjectReference Include="..\Kneat.Reports\Kneat.Reports.csproj" />
+    <ProjectReference Include="..\Kneat.ConfigurationManager\Kneat.ConfigurationManager.csproj" />
   </ItemGroup>
 </Project>

@@ -19,16 +19,12 @@ namespace Kneat.Framework.Controls
         public void Clear()
         {
             Element.Clear();
-
-            // log
             ExtentReportsHelper.Instance.SetStepStatusPass($"Element {ControlName} cleared");
         }
 
         public void SetText(string text)
         {
             Element.SendKeys(text);
-
-            // log
             ExtentReportsHelper.Instance.SetStepStatusPass($"Element {ControlName} has Set Text [{text}]");
         }
     }

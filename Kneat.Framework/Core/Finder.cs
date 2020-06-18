@@ -9,7 +9,6 @@ namespace Kneat.Framework.Core
 {
     public class Finder
     {
-
         public static IWebElement FindElement(WebElement element)
         {
 
@@ -38,6 +37,5 @@ namespace Kneat.Framework.Core
 
             return wait.Until(d => d.FindElement(element.By));
         }
-
     }
 }

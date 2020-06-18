@@ -23,4 +23,12 @@
     <ProjectReference Include="..\Kneat.Pages\Kneat.Pages.csproj" />
     <ProjectReference Include="..\Kneat.Reports\Kneat.Reports.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

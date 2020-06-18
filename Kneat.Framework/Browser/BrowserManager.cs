@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.IO;
 using System.Reflection;
 using Kneat.Reports;
@@ -25,7 +24,7 @@ namespace Kneat.Framework.Browser
         public WebDriverWait Wait { get; private set; }
         public Actions Actions { get; private set; }
 
-        private string _browser = ConfigurationManager.AppSettings["Browser"];
+        private string _browser = ConfigurationManager.Settings.Config["Browser"];
 
         private static BrowserManager _instance;
         public static BrowserManager Instance => _instance ??= new BrowserManager();

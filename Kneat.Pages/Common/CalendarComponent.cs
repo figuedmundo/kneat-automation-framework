@@ -29,7 +29,6 @@ namespace Kneat.Pages.Common
         public IControl Display => ControlFactory
             .GetControl<Control>(this, Locator.CssSelector, ".bui-calendar__display", "Calendar Display");
 
-
         public void SelectDate(DateTime datetime)
         {
             var formatedDate = datetime.ToString("yyyy-MM-dd");

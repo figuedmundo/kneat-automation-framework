@@ -6,6 +6,5 @@ namespace Kneat.Common.Behavior
         void SelectByText(string text);
 
         string GetOptionSelected();
-
     }
 }

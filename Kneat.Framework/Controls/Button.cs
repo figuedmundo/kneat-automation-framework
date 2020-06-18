@@ -20,7 +20,6 @@ namespace Kneat.Framework.Controls
         {
             Element.Click();
 
-            // log
             var message = $"Click on {ControlName}";
             ExtentReportsHelper.Instance.SetStepStatusPass(message);
         }

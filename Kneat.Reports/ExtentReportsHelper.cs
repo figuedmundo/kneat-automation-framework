@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
+using Kneat.ConfigurationManager;
 
 namespace Kneat.Reports
 {
@@ -22,8 +23,13 @@ namespace Kneat.Reports
 
         public void Init()
         {
+            var path = Settings.Config["ReportPath"];
+            string reportPath =  !string.IsNullOrEmpty(path)
+                ? path
+                : Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+
             Extent = new AventStack.ExtentReports.ExtentReports();
-            Reporter = new ExtentV3HtmlReporter(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "ExtentReport.html"));
+            Reporter = new ExtentV3HtmlReporter(Path.Combine(reportPath, "ExtentReport.html"));
             Reporter.Config.DocumentTitle = "Automation Testing Report";
             Reporter.Config.ReportName = "Regression Testing";
             Reporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;

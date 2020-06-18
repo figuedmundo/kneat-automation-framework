@@ -9,9 +9,6 @@ namespace Kneat.Framework.Controls
 {
     public class Control : WebElement, IControl
     {
-        protected WebElement element;
-
-
         public Control(Locator locator, string value, string controlName)
             : base(locator, value, controlName)
         {
@@ -26,19 +23,16 @@ namespace Kneat.Framework.Controls
         {
             var text = Element.Text;
 
-            // log
             var message = $"Get Text from {ControlName}, text: [{text}]";
             ExtentReportsHelper.Instance.SetStepStatusPass(message);
 
             return text;
         }
 
-
         public bool IsDisplayed()
         {
             var res = Element.Displayed;
 
-            // log
             var message = $"Element {ControlName} is Displayed";
             ExtentReportsHelper.Instance.SetStepStatusPass(message);
 
@@ -49,7 +43,6 @@ namespace Kneat.Framework.Controls
         {
             var res = Element.Enabled;
 
-            // log
             var message = $"Element {ControlName} is Enable";
             ExtentReportsHelper.Instance.SetStepStatusPass(message);
 
@@ -98,6 +91,5 @@ namespace Kneat.Framework.Controls
                 throw new InvalidElementStateException(message);
             }
         }
-
     }
 }

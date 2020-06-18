@@ -1,5 +1,4 @@
-﻿using System;
-namespace Kneat.Common.Controls
+﻿namespace Kneat.Common.Controls
 {
     public interface IControl
     {
@@ -9,6 +8,5 @@ namespace Kneat.Common.Controls
         void Highlight();
         bool IsPresent();
         void VerifyContainsText(string expectedValue);
-
     }
 }
