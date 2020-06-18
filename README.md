@@ -7,7 +7,7 @@ Automation Framework project for UI test automation using Selenium and .NET core
 ## Requirements
 
 * Chrome Browser
-* .NET Core 3.1
+* [.NET Core 3.1](https://dotnet.microsoft.com/download)
 
 ## Configuration File
 
@@ -28,22 +28,24 @@ To set up the Report Path make sure that the user has write privileges.
 
 1. Clone the repository
 
-2. Build the projects
+```
+$ git clone https://github.com/figuedmundo/kneat-automation-framework.git
+```
+2. Configure Report Path (Optional)
+
+3. Build the projects
 
 ```
-$ cd Kneat
+$ cd kneat-automation-framework
 $ dotnet build
 ```
 
-3. Execute the Test Cases
+4. Execute the Test Cases
 
 ```
-$ dotnet test Kneat.TestCases/Kneat.Bdd.csproj
+$ dotnet test Kneat.TestCases/Kneat.TestCases.csproj
 ```
 
-4. Open the **AutomationReport.html** from the path specified.
+5. Open the **AutomationReport.html** from the path specified.
 
-5. Enjoy!
-
-
-
+6. Enjoy!
