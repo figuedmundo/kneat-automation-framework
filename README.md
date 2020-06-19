@@ -46,6 +46,6 @@ $ dotnet build
 $ dotnet test Kneat.TestCases/Kneat.TestCases.csproj
 ```
 
-5. Open the **AutomationReport.html** from the path specified.
+5. Open the **AutomationReport.html** from the path specified. (The path by default is *Kneat.TestCases/bin/Debug/netcoreapp3.1/AutomationReport.html*)
 
 6. Enjoy!
